@@ -67,6 +67,14 @@ class Language {
 		$this->language = $local_language;
 	}
 
+	public function data() {
+		if (empty($this->lang_data)) {
+			die("ERROR: LANGUAGE: Get W/O Set");
+		}
+
+		return $this->lang_data;
+	}
+
 	private function getSetLangData($code)
 	{
 		if ($data = file_get_contents($this->lang_config['root_path']."/".$this->lang_config['lang_path'].$this->lang_config['languages'][$code].".json")) {
